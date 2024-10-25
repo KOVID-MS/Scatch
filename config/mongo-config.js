@@ -1,13 +1,13 @@
 const mongoose = require("mongoose");
-// const dotenv = require("dotenv").config();
-// const URI = process.env.MONGOURI;
+const config = require("config");
+const dbgr = require("debug")("development:mongoose");
 
-mongoose.connect("mongodb://127.0.0.1:27017")
+mongoose.connect(`${config.get("MONGOURI")}/scatch`)
 .then(()=>{
-    console.log("Database Connected Successfully");
+    dbgr("Database Connected Successfully");
 })
 .catch((err)=>{
-    console.log(err.message);
+    dbgr(err.message);
 })
 
 module.exports = mongoose.connection

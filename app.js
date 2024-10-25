@@ -1,10 +1,9 @@
 const express = require("express");
 const app = express();
-// const dotenv = require("dotenv").config();
 const db = require("./config/mongo-config");
 const userRouter = require("./routes/userRoutes");
 const productRouter = require("./routes/productRoutes");
-const ownerRouter = require("./routes/ownerRoutes");
+const ownerRouter = require("./routes/adminRoutes");
 
 const path = require('path');
 app.set('view engine','ejs');
